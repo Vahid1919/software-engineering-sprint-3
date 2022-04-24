@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Place search</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="">
+    <div style="display: flex; margin: 0 auto;">
+        <form style="margin: 50px auto 150px; height: 400px;" class="cont cont-home" action="agent-place-search" method="POST">
+            <h2> Search by place </h2>
+            <!-- Dropdown populated with all infected places-->
+            <select name="id">
+                <option value="invalid"> Search places </option>
+                {% for i in data %}
+                    <OPTION value={{i[0]}}>{{i[1]}}</OPTION>
+                {% endfor %}
+            </select> <br><br>
+            <h3>Visited by infected visitor</h3>
+            <h3>FROM:</h3>
+            <!-- max date should be the current day, this can be done later with JS -->
+            <input type="datetime" id="from" name="from" min="2019-11-17 00:00:00" max="2023-12-30 23:59:59"> <br>
+            <h3>TO:</h3>
+            <!-- same for max date here -->
+            <input type="datetime" id="to" name="to" min="2019-11-17 00:00:00" max="2019-11-17 00:00:00"> <br>
+            <button class="hospital-search-button" type="submit" class="submit">Search</button>
+        </form>
+    </div>
+    <h2>Visited by infected visitors:</h2>
+    <table> 
+        <thead> 
+        <tr> 
+            <th>ID</th> 
+            <th>name</th>
+            <th>address</th>
+            <th>QR code</th>
+        </tr> 
+        </thead> 
+        <tbody> 
+            {% for row in data %}  
+                <tr> 
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                </tr> 
+            {% endfor %} 
+        </tbody> 
+    </table>
+</div>
+{% endblock %}

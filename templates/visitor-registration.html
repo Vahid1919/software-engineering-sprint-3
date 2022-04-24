@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block head%}
+<title>Visitor Registration</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}" />
+<!-- <script src="{{ url_for('static', filename='js/validation.js')}}" defer></script> -->
+{% endblock %} {% block body %}
+<!--TODO: Make proper action script-->
+<form class="login" action="/visitor-registration" method="post">
+  <div class="cont form-container">
+    <div class="form sign-in" style="color: white">
+      <h2 style="color: #1de9b6">Visitor Registration Page</h2>
+      <br />
+      <label>
+        <span id="full-name-span">Full Name</span>
+        <input id="full-name-input" type="text" name="name" />
+      </label>
+      <label>
+        <span id="city-span">City</span>
+        <input id="city-input" type="text" name="city" />
+      </label>
+      <label>
+        <span id="address-span">Address</span>
+        <input id="address-input" type="text" name="address" />
+      </label>
+      <label>
+        <span id="email-span">Email</span>
+        <input id="email-input" type="email" name="email" />
+      </label>
+      <label>
+        <span id="phone-number-span">Phone Number</span>
+        <input id="phone-number-input" type="tel" name="phone" />
+      </label>
+      <button class="input-submit" type="submit" class="submit">
+        REGISTER
+      </button>
+      <div id="warning" class="warning">{{ message }}</div>
+    </div>
+  </div>
+</form>
+{% endblock %}

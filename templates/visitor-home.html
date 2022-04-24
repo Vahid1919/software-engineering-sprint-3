@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="welcome">
+    <h1>Hello {{ name }},</h1>
+    <br>
+    <h3>Scan QR Code when you enter an establishment 😊</h3>
+</div>
+
+
+<div class="visitor-signin-container">
+
+    <button onclick="visitorScanIn()" class="nav-item" class="qr-button">SCAN IN</button>
+
+    <video id="webcam-preview"></video>
+
+    <p id="result"></p>
+
+</div>
+
+
+<script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script>
+<script>
+    function redirect(result) {
+
+        window.location.assign("/place/" + result);
+        
+    }
+
+    function visitorScanIn() {
+        const codeReader = new ZXing.BrowserQRCodeReader();
+        codeReader.decodeFromVideoDevice(null, 'webcam-preview', (result, err) => {
+            if (result) {
+                // properly decoded qr code
+                // console.log('Found QR code!', result)
+                document.getElementById('result').textContent = result.text
+
+                redirect(result)
+                
+
+            }
+        })
+    }
+</script>
+{% endblock %}

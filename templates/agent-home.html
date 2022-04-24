@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Agent Home</title>
+{% endblock %}
+
+
+{% block body %}
+
+<div class="welcome">
+    <h1>Hello {{ username }},</h1>
+    <br>
+    <h3>Pick an action 😊</h3>
+</div>
+
+
+<div class="cont cont-home">
+    <!-- Menu to the different actions -->
+    <div class="agent-action-list">
+        <a href="agent-visitor-search" class="agent-action-item">Search by visitor</a>
+        <a href="agent-place-search" class="agent-action-item">Search by place</a>
+        <a href="agent-add-hospital" class="agent-action-item">Add new hospital</a>
+        <a href="agent-database-tools" class="agent-action-item">Write/Read Database</a>
+    </div>
+    
+</div>
+{% endblock %}

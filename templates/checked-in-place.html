@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Visitor Homepage</title>
+{% endblock %}
+
+
+{% block body %}
+<!--Fetch Place Name from database-->
+<h2 style="margin-top: 100px;">Logged into {{data}}</h2>
+<!--Insert stopwatch-->
+<h2>Time Signed In </h2>
+<h3 style="text-align: center" id="time"></h3>
+<script>
+    var today = new Date();
+    var time = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate() + ' ' + today.getHours() + ':' +
+        today.getMinutes() + ':' +
+        today.getSeconds();
+
+    var qrcode = window.location.href.split('/').slice(-1)[0]
+
+    $.post('/signin', {
+            time: time,
+            qrcode: qrcode
+        },
+        (data, status) => {
+            console.log("here")
+            $("#time").text(data);
+        })
+
+
+    function logout() {
+        today = new Date()
+        var logoutTime = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate() + ' ' + today.getHours() +
+            ':' +
+            today.getMinutes() + ':' +
+            today.getSeconds();
+
+        console.log(logoutTime)
+
+        $.post("/signout", {
+            time: logoutTime,
+            qrcode: qrcode
+        }, (data, status) => {
+            if (data === "Saved")
+                window.location.assign('/visitor-home')
+        })
+
+    }
+</script>
+<div class="label1" style="text-align: center">
+<label id="minutes">00</label>
+<label id="colon">:</label>
+<label id="seconds">00</label>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<form action="">
+</form>
+    <script type="text/javascript">
+        var minutesLabel = document.getElementById("minutes");
+        var secondsLabel = document.getElementById("seconds");
+        var totalSeconds = 0;
+        setInterval(setTime, 1000);
+        function setTime()
+        {
+            ++totalSeconds;
+            secondsLabel.innerHTML = pad(totalSeconds%60);
+            minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+        }
+        function pad(val)
+        {
+            var valString = val + "";
+            if(valString.length < 2)
+            {
+                return "0" + valString;
+            }
+            else
+            {
+                return valString;
+            }
+        }
+    </script>
+    <button  class="nav" class="button" onclick="logout()">Leave Place</button>
+
+{% endblock %}

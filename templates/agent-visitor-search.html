@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Search by Visitor</title>
+{% endblock %}
+{% block body %}
+<div class="">
+    <div style="display: flex; margin: 0 auto;">
+        <form style="margin: 50px auto 100px;" class="cont cont-home" action="agent-visitor-search" method="POST">
+            <h2> Search by Visitor </h2>
+            <!-- dropdown populated with all infected visitors -->
+            <select name="id">
+                <option value="invalid"> Search people </option>
+                <!-- i0 is the visitor_id, i1 is the visitor name -->
+                {% for i in data %}
+                    <OPTION value={{i[0]}}>{{i[1]}}</OPTION>
+                {% endfor %}
+            </select> <br>
+            <button class="hospital-search-button" type="submit" class="submit">Search</button>
+        </form>
+    </div>
+    <h2>Infected Visitors</h2>
+    <table> 
+        <thead> 
+        <tr> 
+            <th>ID</th> 
+            <th>full name</th>
+            <th>city</th> 
+            <th>address</th> 
+            <th>phone number</th>
+            <th>email</th>
+            <th>infected</th>
+        </tr> 
+        </thead> 
+        <tbody> 
+            {% for row in data %}  
+                <tr> 
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>{{row[5]}}</td>
+                    <td>{{row[6]}}</td>
+                </tr> 
+            {% endfor %} 
+        </tbody> 
+    </table>
+</div>
+{% endblock %}

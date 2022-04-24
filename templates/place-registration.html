@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Place Registration</title>
+{% endblock%}
+
+
+{% block body %}
+<form class="registration" action="/place-registration" method="post">
+    <!--TODO: Make proper action script-->
+    <div class="cont cont-owner">
+        <div class="form owner-sign-in">
+            <h2 style="color: #1de9b6">Place Owner Registration</h2><br>
+            <label>
+                <span>Place Name</span>
+                <input type="text" name="pname" />
+            </label>
+            <label>
+                <span>Address</span>
+                <input type="text" name="address" />
+            </label>
+            <label>
+                <span>Email</span>
+                <input type="email" name="email" />
+            </label>
+            <label>
+                <span>Phone Number</span>
+                <input type="tel" name="phone" />
+            </label>
+            <!--TODO: Needs implementation-->
+            <button  class="input-submit"  type="submit" class="submit">Register</button>
+            <div class="warning">{{ message }}</div>
+        </div>
+    </div>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+{% endblock %}

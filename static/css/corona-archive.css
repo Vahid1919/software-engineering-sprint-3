@@ -1,0 +1,350 @@
+#user-type-choice {
+  border: 2px solid black;
+  background-color: gray;
+  width: 500px;
+  height: 200px;
+  /*Text settings*/
+  font-family: Georgia;
+  text-align: center;
+
+  /*Center vertically and horizontally*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.registration{
+      max-width: 390px;
+    margin: 150px auto;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 20px;
+    padding: 50px 50px 40px 30px;
+    background: #11171a;
+}
+#seconds {
+      font-size: 2em;
+    }
+#minutes {
+      font-size: 2em;
+    }
+#colon {
+      font-size: 2em;
+    }
+*,
+*:before,
+*:after {
+  margin: 0px;
+  padding: 0px;
+}
+.label1 > label {
+  display: inline;
+  vertical-align: middle;
+
+}
+body {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  background: #ededed;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+.button:hover{
+    background-color: rgba(116, 105, 105, 0.671);
+
+}
+.form {
+  position: relative;
+  width: 640px;
+}
+
+.log-in {
+  width: 480px;
+  height: 485px;
+}
+
+.sign-in {
+  width: auto;
+  padding: 45px 30px 0px;
+}
+
+.cont-owner {
+  height: 600px;
+  width: 590px;
+}
+
+.owner-sign-in {
+  width: 590px;
+}
+
+.cont-hospital {
+  height: 600px;
+  width: 590px;
+}
+
+.hospital-sign-in {
+  width: 590px;
+}
+
+button {
+  display: block;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+h2 {
+  width: 100%;
+    font-size: 30px;
+    text-align: center;
+    margin: 1em 0;
+}
+
+label {
+  display: block;
+  width: 260px;
+  margin: 10px auto 0;
+  text-align: center;
+}
+
+label span {
+  font-size: 12px;
+  color: #cfcfcf;
+  text-transform: uppercase;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-top: 3px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.submit {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background: #1de9b6;
+  text-transform: uppercase;
+}
+
+.select {
+  position: relative;
+  width: 566px;
+  padding: 57px 72px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1em;
+}
+.nav1 {
+  margin-right: auto;
+}
+.nav-item {
+  height: 4em;
+  width: 10em;
+
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  border-radius: 20px;
+}
+.nav{height: 4em;
+  width: 10em;
+
+  justify-content: center;
+  align-items: center;
+  color: #f7f7f7;
+  position: relative;
+  background-color: #1de9b6;
+  font-size: 13px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  border-radius: 20px;
+
+display: flex;
+margin: 0 auto;
+}
+.nav:hover{
+      background-color: rgba(116, 105, 105, 0.671);
+
+}
+button[class="nav-item"] {
+  background-color: #1de9b6;
+}
+
+.logout-container {
+  margin-left: auto;
+}
+
+.nav-item:hover {
+  background-color: rgba(116, 105, 105, 0.671);
+}
+
+.qr-button {
+  background-color: #1de9b6;
+  display: flex;
+  padding: 0.1em;
+  font-size: larger;
+  text-align: center;
+  width: 7em;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto;
+}
+.qr-button:hover{
+  background-color: #4E4646;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #11171a;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #11171a;
+}
+
+#svg_img {
+  display: flex;
+  justify-content: center;
+  width: min-content;
+  margin: 0 auto;
+}
+
+#infected,
+#notinfected {
+  width: auto;
+  margin: 10px;
+}
+
+.welcome {
+  display: grid;
+  place-items: center;
+  margin: 3em 0;
+}
+
+.visitor-signin-container {
+  height: 78vh;
+  overflow-y: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: white; */
+}
+
+.input-submit {
+  width: 7em;
+  height: 3em;
+  background-color: #1de9b6;
+  display: flex;
+  margin: 1em auto;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+}
+
+.input-submit:hover {
+  background-color: #4E4646;
+}
+
+.registration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 3em 0; */
+}
+
+.agent-action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.agent-action-item {
+  height: 5em;
+  width: 15em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: white;
+  background-color: #1de9b6;
+  border-radius: 25px;
+
+  display: grid;
+  place-items: center;
+}
+
+.agent-action-item:hover {
+  background-color: #4E4646;
+  COLOR: WHITE;
+}
+
+.hospital-search-button {
+  width: 8em;
+  height: 3em;
+  background-color: #1de9b6;
+  display: flex;
+  margin: 1em auto;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+}
+.hospital-search-button:hover{
+  background-color: #4E4646;
+}
+
+input{
+  color: white;
+  border-bottom: 1px solid rgb(188, 188, 188);
+}
+
+form[id="add-hospital"]{
+  display: grid;
+  place-items: center;
+  margin-top: 10%;
+}
+
+body{
+  overflow-x: hidden;
+
+}

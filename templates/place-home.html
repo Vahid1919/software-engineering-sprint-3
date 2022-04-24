@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="welcome">
+    <h1>Hello {{ place_name }},</h1>
+    <br>
+    <h3>THIS IS YOUR QR CODE😊</h3>
+</div>
+
+<div class="cont cont-home">
+<div style="background:white" id="svg_img">
+    {{data_svg | safe}}
+</div>
+
+
+<button onclick="downloadSvg()" class="qr-button">DOWNLOAD</button>
+<canvas id="canvas" style="display: none;"></canvas>
+</div>
+<script>
+
+    // JavaScript anonymous function
+    (() => {
+        if (window.localStorage) {
+
+            // If there is no item as 'reload'
+            // in localstorage then create one &
+            // reload the page
+            if (!localStorage.getItem('reload')) {
+                localStorage['reload'] = true;
+                window.location.href = window.location.protocol +'//'+ window.location.host + window.location.pathname;
+            } else {
+
+                // If there exists a 'reload' item
+                // then clear the 'reload' item in
+                // local storage
+                localStorage.removeItem('reload');
+            }
+        }
+    })(); 
+
+
+
+    function downloadSvg() {
+
+
+        var svg = document.querySelector('svg');
+        var canvas = document.querySelector('canvas');
+
+        function triggerDownload(imgURI) {
+            var evt = new MouseEvent('click', {
+                view: window,
+                bubbles: false,
+                cancelable: true
+            });
+
+            var a = document.createElement('a');
+            a.setAttribute('download', 'qr.jpg');
+            a.setAttribute('href', imgURI);
+            a.setAttribute('target', '_blank');
+
+            a.dispatchEvent(evt);
+
+        }
+
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        var data = (new XMLSerializer()).serializeToString(svg);
+        var DOMURL = window.URL || window.webkitURL || window;
+
+        var img = new Image();
+        var svgBlob = new Blob([data], {
+            type: 'image/svg+xml;charset=utf-8'
+        });
+        var url = DOMURL.createObjectURL(svgBlob);
+
+        img.onload = function () {
+            ctx.drawImage(img, 0, 0, 100, 100);
+            DOMURL.revokeObjectURL(url);
+
+            var imgURI = canvas
+                .toDataURL('image/jpg')
+                .replace('image/jpg', 'image/octet-stream');
+
+            triggerDownload(imgURI);
+        };
+        img.src = url;
+
+        
+    }
+</script>
+{% endblock %}
